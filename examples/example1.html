@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>thumbsPlayer Example #1</title>
+                
+                <!-- Some quick CSS -->
+                <link type="text/css" rel="stylesheet" href="extras/stylesheet.css" />
+                
+                <!-- jQuery 2.1.4 from Google -->
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+                
+                <!-- jPlayer for non-supported formats -->
+                <script src="../player/jplayer/jplayer.min.js"></script>
+                
+                <!-- thumbsPlayer itself -->
+                <script src="../player/player.js"></script>
+                
+                <script>                
+                <!-- Initialize -->
+                $(document).ready(function(){
+                        
+                        var player = new ThumbsPlayer({
+                                selector: '#player1'
+                        });
+
+                        console.log(player);
+                });
+                </script>
+        </head>
+        
+        <body>
+                
+                <h2>thumbsPlayer Example #1</h2>
+                
+                <p>Basic player with one audio file and everything in the DOM.</p>
+                
+                <div id="player1" class="examplePlayer">
+                        
+                        <audio preload="metadata">
+                                <source src="extras/01 Ponky Fonky Ferret.mp3" type="audio/mpeg" />
+                        </audio>
+                        
+                        <div class="controlSingle"></div>
+                        
+                        <div class="playerRight">
+                                
+                                <div class="timeBar">
+                                        <span class="currentTime">0:00:00</span> / <span class="totalTime">0:00:00</span>
+                                </div>
+                                <div class="scrubber"></div>
+                                <div class="streamMsg scrollover"></div>
+                                
+                                <div class="volumeControls">
+                                        Volume: <span class="volumeUp">+</span> / <span class="volumeDown">-</span>
+                                </div>
+                        </div>
+                </div>
+
+                <p class="exampleNote">Examples use the wonderful album <a href="http://goto80.com/blog/goto80-the-uwe-schenk-band-the-ferret-show-mp3-upitup"><i>The Ferret Show</i> by Goto80 &amp; The Uwe Schenk Band</a> which was released into the public domain by the authors. To make the examples work you can <a href="http://www.upitup.com/catalogue/release.php?cat_id=64">download the tracks</a> and extract them to the extras folder.</p>
+                
+        </body>
+        
+</html>
