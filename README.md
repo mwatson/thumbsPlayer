@@ -116,8 +116,8 @@ The settings you can pass are as follows:
 #### Optional:
 
 **audio**: Array of audio files with *file* and *type* properties. You can also 
-provide an optional **trackInfo* property which can have three properties named 
-**title**, **artis** and **album** (all three are optional).
+provide an optional **trackInfo** property which can have three properties named 
+**title**, **artist** and **album** (all three are optional).
 
 **messages**: Customize the streaming/paused messages
 
