@@ -8,9 +8,9 @@ Thumbs. The goal of the player was to be simple to use, drop-inable and customiz
 Relevant Files
 --------------
 
-``**player/player.js**`` is the uncompressed, commented player.
+``player/player.js`` is the uncompressed, commented player.
 
-``**dist/player.min.js**``, as you may have guessed, is the minified version. It also 
+``dist/player.min.js``, as you may have guessed, is the minified version. It also 
 includes the two plugins. If you would like to build a version without plugins, see the 
 second on Building the player below.
 

@@ -644,8 +644,6 @@ Supported settings:
                         }
                 
                 })(settings, this);
-
-                return {};
         };
 
 })(this, jQuery, 'ThumbsPlayer');
