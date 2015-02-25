@@ -1,6 +1,6 @@
 /*
  
- thumbsPlayer - v1.0.7
+ thumbsPlayer - v1.0.8
  
  Setting up a ThumbsPlayer in HTML (all elements are optional):
  
@@ -243,7 +243,7 @@ Supported settings:
                         var timeSections = timeString.split(':').reverse(),
                             seconds = 0;
                         for(var i = 0; i < timeSections.length; i++) {
-                                if(i == 0) seconds += parseInt(timeSections[i]);
+                                if(i === 0) seconds += parseInt(timeSections[i]);
                                 else if(i == 1) seconds += parseInt(timeSections[i]) * 60;
                                 else if(i == 2) seconds += parseInt(timeSections[i]) * 3600;
                         }
@@ -481,10 +481,11 @@ Supported settings:
                                 this.volume = settings.initVolume;
                         }
 
+                        var i;
                         if(this.el.find('audio').length) {
                                 playlist = this.el.find('audio');
                         } else if(typeof settings.audio != 'undefined' && settings.audio.length) {
-                                for(var i = 0; i < settings.audio.length; i++) {
+                                for(i = 0; i < settings.audio.length; i++) {
                                         var a = new Audio();
                                         a.src = settings.audio[i].file;
 
@@ -503,7 +504,7 @@ Supported settings:
                         }
 
                         var playable;
-                        for(var i = 0; i < playlist.length; i++) {
+                        for(i = 0; i < playlist.length; i++) {
 
                                 playable = playlist[i].canPlayType(playlist[i].type);
 
@@ -644,7 +645,7 @@ Supported settings:
                 
                 })(settings, this);
 
-
+                return {};
         };
 
 })(this, jQuery, 'ThumbsPlayer');

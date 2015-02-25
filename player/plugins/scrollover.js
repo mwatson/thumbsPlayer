@@ -1,6 +1,6 @@
 /*
 
- thumbsPlayer Scrollover Plugin - v1.0.1
+ thumbsPlayer Scrollover Plugin - v1.0.2
   
  The audioTitle class should have styles of:
         white-space: nowrap;
@@ -57,11 +57,13 @@ ThumbsPlayer.prototype.scrollover = function(){
                 
                 scrollOffset = scWidth - parseInt(titleContainer.innerWidth());
                 scrollTime = scrollSpeed * (scrollOffset / 100);
+
+                scrollContainer.css({ transition: 'transform ' + (scrollTime / 1000) + 's linear' });
                 
         })(this), 
         
         animateLeft = function(){
-                scrollContainer.animate({ marginLeft: -1 * scrollOffset + 'px' }, scrollTime, 'linear');
+                scrollContainer.css({ transform: 'translate3d(' + -scrollOffset + 'px, 0px, 0px)' });
                 clearTimeout(animateTimer);
                 animateTimer = setTimeout(function(){
                         animateRight();
@@ -69,7 +71,7 @@ ThumbsPlayer.prototype.scrollover = function(){
         },
         
         animateRight = function(){
-                scrollContainer.animate({ marginLeft: '0px' }, scrollTime, 'linear');
+                scrollContainer.css({ transform: 'translate3d(0px, 0px, 0px)' });
                 clearTimeout(animateTimer);
                 animateTimer = setTimeout(function(){
                         animateLeft();

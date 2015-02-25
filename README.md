@@ -8,9 +8,11 @@ Thumbs. The goal of the player was to be simple to use, drop-inable and customiz
 Relevant Files
 --------------
 
-**player.js** is the uncompressed, commented player.
+``**player/player.js**`` is the uncompressed, commented player.
 
-**player.min.js**, as you may have guessed, is the minified version.
+``**dist/player.min.js**``, as you may have guessed, is the minified version. It also 
+includes the two plugins. If you would like to build a version without plugins, see the 
+second on Building the player below.
 
 Prerequisites
 -------------
@@ -144,8 +146,7 @@ looking thing with CSS.
 Plugins
 -------
 
-Thanks to the magic of Javascript, building a plugin is as easy as making 
-a prototype:
+Thanks to the magic of Javascript, building a plugin is as easy as:
 
         ThumbsPlayer.prototype.pluginName = function(){
                 
@@ -169,13 +170,11 @@ There are currently two plugins:
 
 **Popout**: Allows you to add a clickable button that makes a popout player
 spawn it its own window. It preserves the state of the player as well. Setup is
-in the comments of the uncompressed version. This an optional argument that 
-defines popup settings.
+in the comments. This an optional argument that defines popup settings.
 
 **Scrollover**: Animates a string of text from side to side if the string
 can't fit inside the player. Animation is similar to most compact audio players
-when displaying a lengthy song title or something like that. Minified version is
-included. Setup is in the comments of the uncompressed version.
+when displaying a lengthy song title or something like that.  Setup is in the comments.
 
 Examples
 --------
@@ -205,14 +204,50 @@ Similar to example 2 but with the popout plugin.
 An example of how to create a multi-track playlist and a player with track
 navigation buttons.
 
+Building
+-----------
+
+thumbsPlayer includes a basic Gruntfile that allows you to build different versions 
+of the player scripts. Building requires a node install. From within the thumbsPlayer 
+directory simply run:
+
+```
+npm install
+```
+To install all Grunt dependencies. You can now run Grunt. All targets will output to 
+`dist/player.min.js`. To build:
+
+```
+grunt
+```
+This will build the default version, which is just the main player.
+
+```
+grunt with-plugins
+```
+This will build a version of the player with the two included plugins.
+
+```
+grunt full-dist
+```
+This will build the player + plugins as well as appending jPlayer to the end of the 
+script. This version is likely not necessary as you can include the jPlayer file 
+(located at `player/jplayer/jplayer.min.js`) on its own.
+
+```
+grunt full-dist-dev
+```
+This will create the same version of the file as above, however it will not minify 
+the script (though jPlayer will still be minified at the end). This can be used for 
+development purposes.
+
+
 To Do List
 -----------
 
 * Some revision on the actual structure of the player: better encapsulation etc
 
 * Expose less of the player to plugins and build a more real-ish plugin system
-
-* Build scripts for combining and minifying everything
 
 * Better error handling for various cases: missing audio, incorrectly initialized 
 player etc
